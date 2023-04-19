@@ -25,3 +25,27 @@ El diseño debe ser responsive.
 ## Notas 🗒
 - Se valorará el buen uso de git (commits, branches, etc.)
 - Se pueden utilizar librerías extra, tanto de frontend como de backend
+
+## Como ejecutar el proyecto
+
+### Backend
+```
+npm install
+```
+```
+npm run dev
+```
+### Frontend
+```
+npm install
+```
+```
+npm run build
+```
+```
+npm run start
+```
+### Database
+```
+docker-compose up -d
+```
