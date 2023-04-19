@@ -2,12 +2,18 @@ import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import { getAlbumsByArtist } from './spotifyAPI';
 import cors from 'cors';
-import { saveSolicitud } from './sequelize';
+import { saveSolicitud, sequelize } from './sequelize';
 
 dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT;
+
+sequelize.sync().then(() => {
+  console.log('Book table created successfully!');
+}).catch((error) => {
+  console.error('Unable to create table : ', error);
+});
 
 app.use(cors({
   origin: '*'
@@ -22,7 +28,7 @@ app.post('/albums', async (req: Request, res: Response) => {
   const artistName = req.body.name;
   const IP = req.ip;
   const date = new Date();
-  console.log(date)
+  
   try {
     const albums = await getAlbumsByArtist(artistName);
     

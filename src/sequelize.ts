@@ -6,7 +6,7 @@ const sequelize = new Sequelize({
     host: 'localhost',
     username: 'myusername',
     password: 'mypassword',
-    database: 'mydatabase',
+    database: 'db',
     models: [Solicitud]
 });
 
