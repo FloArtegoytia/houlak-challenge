@@ -35,6 +35,8 @@ npm install
 ```
 npm run dev
 ```
+Se levanta en localhost:8080
+
 ### Frontend
 ```
 npm install
@@ -45,6 +47,8 @@ npm run build
 ```
 npm run start
 ```
+Se levanta en localhost:3000
+
 ### Database
 ```
 docker-compose up -d
