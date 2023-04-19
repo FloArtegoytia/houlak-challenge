@@ -2,6 +2,7 @@ import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import { getAlbumsByArtist } from './spotifyAPI';
 import cors from 'cors';
+import { saveSolicitud } from './sequelize';
 
 dotenv.config();
 
@@ -19,9 +20,13 @@ app.get('/', (req: Request, res: Response) => {
 
 app.post('/albums', async (req: Request, res: Response) => {
   const artistName = req.body.name;
-
+  const IP = req.ip;
+  const date = new Date();
+  console.log(date)
   try {
     const albums = await getAlbumsByArtist(artistName);
+    
+    saveSolicitud(IP.toString(), date, artistName.toString());
 
     res.json(albums);
   } catch (error) {
