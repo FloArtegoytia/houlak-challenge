@@ -28,6 +28,11 @@ El diseño debe ser responsive.
 
 ## Como ejecutar el proyecto
 
+### Database
+```
+docker-compose up -d
+```
+
 ### Backend
 ```
 npm install
@@ -39,6 +44,7 @@ Se levanta en localhost:8080
 
 ### Frontend
 ```
+cd client
 npm install
 ```
 ```
@@ -48,8 +54,3 @@ npm run build
 npm run start
 ```
 Se levanta en localhost:3000
-
-### Database
-```
-docker-compose up -d
-```
